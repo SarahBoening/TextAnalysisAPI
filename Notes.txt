@@ -1,0 +1,33 @@
+url                                     http method          action
+http://host/app/users                 	get                list users
+http://host/app/users/new          		get                show create user form
+http://host/app/users/1             	get                show user[id=1]
+http://host/app/users/1/update    		get                show edit form for user[id=1]
+http://host/app/users/1              	put                submit the edit form
+
+
+Error Handling in Spring
+http://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
+
+User Roles
+Admin
+	Create/Update Group
+Moderator
+User
+	Create/Update User
+	Create/Update ContainerNote
+	Create/Update ContainerComment
+	Create/Update Group
+	
+	
+	
+	
+Services:
+/group/ 					POST	Create new group
+/group/{id}/update			POST	Update group with ID
+/group/{id} 				GET		Find by ID
+
+/user/						POST	Create new User
+/user/{id}/update			POST	Update user with ID
+/user/{id}					GET		Find by ID
+/user/join/{groupname}		POST	Join Group

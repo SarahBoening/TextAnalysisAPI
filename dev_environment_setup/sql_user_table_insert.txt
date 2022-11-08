@@ -1,0 +1,31 @@
+CREATE TABLE `user` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `EMAIL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PASSWORD` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `TIMESTAMP` datetime NOT NULL,
+  `USERNAME` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `FIRSTNAME` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FULLNAME` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LASTNAME` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `UK_j8pqu7twm7ekoe3orxctxr9f4` (`USERNAME`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `rotterdam`.`user`
+(`ID`,
+`EMAIL`,
+`PASSWORD`,
+`TIMESTAMP`,
+`USERNAME`,
+`FIRSTNAME`,
+`FULLNAME`,
+`LASTNAME`)
+VALUES
+('1', 
+'abc@abc.de', 
+'password', 
+'2014-09-26 15:42:50', 
+'abc', 
+NULL, 
+NULL, 
+NULL);

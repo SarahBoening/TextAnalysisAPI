@@ -1,0 +1,49 @@
+Installation:
+
+Eclipse
+
+- Eclipse Luna
+-- Spring Development Environment (via plugin)
+-- JBoss Tools for Luna (required for hibernate)
+-- SVN connector
+- Checkout:
+-- clone git: https://bitbucket.org/oblunk/rub_rotterdam/ 
+-- import maven project (right click in Eclipse)
+-- add spring project nature (if not already present)
+-- add maven project nature (plugin required)
+-- switch java version to 1.7! (otherwise application won't boot)
+-- change path to categories.tsv in analysis/EmpathClient.class
+
+MySQL
+- MySQL Database
+- MySQL Workbench (for initial schema)
+-- Create initial schema “rotterdam” with utf8_general_ci
+-- Run code from sql_user_table_insert.txt, to create user table and to insert first user 
+-- Create account employid (pw: JupAWsdrx123) with sufficient permissions to create tables in schema, etc.
+
+LDAP (or use Username / Passwort auth -> below)
+- ApacheDS (LDAP)
+- Apache Directory Studio (to create the LDIF structure)
+-- Create the partition dc=springframework,dc=org (right click on connection => open configuration, advanced partition settings). Reboot LDAP service after that
+-- Import initial ldif-Schema (make sure that there are no dependencies e.g. create user in group before creating group)
+-- admin account: "uid=admin,ou=system" (without "") / pw: JupAWsdrx123
+-- Ldap:
+--- user / password
+
+Tomcat (coult work also with newer version)
+- Tomcat 8.0.12
+- Download mysql-connector-java-5.1.18-bin.jar and place it into tomcat/lib
+- add tomcat 8 as new project runtime in Eclipse
+
+For LOCAL development
+- Be sure to have local mysql server
+- point db server in (DatabaseConfiguration.java) to local db
+- Switch Auth to inmemory in LdapSecurityConfiguration.java => (comment out regular auth stuff, and comment in in memory auth)
+
+OTHER
+Hibernate Class generation from SQL schema (currently NOT used)
+- delete classpath in hibernate console configuration, and add mysql connector jar
+
+Code for remote deployment is currently commented out:
+- see DatabaseConfiguration.java
+- see SecurityConfiguration.java
